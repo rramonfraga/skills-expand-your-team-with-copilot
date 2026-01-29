@@ -650,7 +650,7 @@ footer {
 #user-controls {
   position: absolute;
   top: 10px;
-  right: 15px;
+  right: 60px;
 }
 
 #user-status {
@@ -720,9 +720,4 @@ footer {
 #dark-mode-toggle:hover {
   background-color: rgba(255, 255, 255, 0.3);
   transform: scale(1.1);
-}
-
-/* Adjust user controls positioning when dark mode toggle is present */
-#user-controls {
-  right: 60px;
 }
