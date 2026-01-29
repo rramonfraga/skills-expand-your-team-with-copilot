@@ -57,6 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Dark mode functionality
   function initializeDarkMode() {
+    // Check if dark mode elements exist
+    if (!darkModeToggle || !darkModeIcon) {
+      return;
+    }
+
     // Check if user has a saved preference
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -66,6 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function toggleDarkMode() {
+    // Check if dark mode icon exists
+    if (!darkModeIcon) {
+      return;
+    }
+
     document.body.classList.toggle("dark-mode");
     const isDarkMode = document.body.classList.contains("dark-mode");
     
@@ -77,7 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Event listener for dark mode toggle
-  darkModeToggle.addEventListener("click", toggleDarkMode);
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", toggleDarkMode);
+  }
 
   // Initialize filters from active elements
   function initializeFilters() {
