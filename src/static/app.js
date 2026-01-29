@@ -554,13 +554,13 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       <div class="social-share-container">
         <span class="share-label">Share:</span>
-        <button class="share-button share-twitter" data-activity="${name}" data-description="${details.description.replace(/"/g, '&quot;')}" title="Share on X (Twitter)">
+        <button class="share-button share-twitter" data-activity="${name.replace(/"/g, '&quot;')}" data-description="${details.description.replace(/"/g, '&quot;')}" title="Share on X (Twitter)" aria-label="Share on X (Twitter)">
           <span class="share-icon">𝕏</span>
         </button>
-        <button class="share-button share-facebook" data-activity="${name}" data-description="${details.description.replace(/"/g, '&quot;')}" title="Share on Facebook">
+        <button class="share-button share-facebook" data-activity="${name.replace(/"/g, '&quot;')}" data-description="${details.description.replace(/"/g, '&quot;')}" title="Share on Facebook" aria-label="Share on Facebook">
           <span class="share-icon">f</span>
         </button>
-        <button class="share-button share-email" data-activity="${name}" data-description="${details.description.replace(/"/g, '&quot;')}" data-schedule="${formattedSchedule.replace(/"/g, '&quot;')}" title="Share via Email">
+        <button class="share-button share-email" data-activity="${name.replace(/"/g, '&quot;')}" data-description="${details.description.replace(/"/g, '&quot;')}" data-schedule="${formattedSchedule.replace(/"/g, '&quot;')}" title="Share via Email" aria-label="Share via Email">
           <span class="share-icon">✉</span>
         </button>
       </div>
@@ -626,8 +626,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
       window.open(twitterUrl, "_blank", "width=550,height=420");
     } else if (button.classList.contains("share-facebook")) {
-      // Share on Facebook
-      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+      // Share on Facebook (note: Facebook will only share the URL)
+      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
       window.open(facebookUrl, "_blank", "width=550,height=420");
     } else if (button.classList.contains("share-email")) {
       // Share via Email
